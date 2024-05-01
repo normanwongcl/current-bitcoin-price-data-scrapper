@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { getCryptoCurrencyByChartName } from '@/server/api/cryptocurrency';
 import {
   getAllPriceEUR,
-  getAllPriceGPB,
+  getAllPriceGBP,
   getAllPriceUSD,
 } from '@/server/api/cryptoPrice';
 
@@ -30,7 +30,7 @@ export const GET = async (req: NextRequest) => {
 
     const allPriceUSD = await getAllPriceUSD(dbData.id);
     const allPriceEUR = await getAllPriceEUR(dbData.id);
-    const allPriceGPB = await getAllPriceGPB(dbData.id);
+    const allPriceGPB = await getAllPriceGBP(dbData.id);
 
     if (timeRange) {
       const filteredPriceUSD =

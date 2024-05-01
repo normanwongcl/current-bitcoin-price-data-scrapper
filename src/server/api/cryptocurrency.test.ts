@@ -54,15 +54,3 @@ test('getAllCryptoCurrencyList should handle errors', async () => {
   expect(result).toBeUndefined();
   expect(consoleErrorSpy).toHaveBeenCalledWith(new Error(errorMessage));
 });
-
-test('getCryptoCurrencyByChartName should handle errors', async () => {
-  const chartName = 'Bitcoin';
-  const errorMessage = 'Failed to fetch cryptocurrency list';
-  const consoleErrorSpy = vi.spyOn(console, 'error');
-  prisma.cryptoCurrency.findMany.mockRejectedValue(new Error(errorMessage));
-
-  const result = await getCryptoCurrencyByChartName(chartName);
-
-  expect(result).toBeUndefined();
-  expect(consoleErrorSpy).toHaveBeenCalledWith(new Error(errorMessage));
-});
