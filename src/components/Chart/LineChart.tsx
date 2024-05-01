@@ -12,14 +12,17 @@ export const LineChart = (cryptoHistoricalPrice: ICryptoHistoricalPrice) => {
       datasetIdKey={dataId.toString()}
       data={{
         labels: [
-          ...cryptoHistoricalPrice.USD.map((item) =>
+          ...(cryptoHistoricalPrice?.USD?.map((item) =>
             dateFormatter(item.updatedAt)
-          ),
+          ) ?? []),
         ],
         datasets: [
           {
             label: 'USD',
-            data: [...cryptoHistoricalPrice.USD.map((item) => item.rateFloat)],
+            data: [
+              ...(cryptoHistoricalPrice?.USD?.map((item) => item.rateFloat) ??
+                []),
+            ],
           },
         ],
       }}

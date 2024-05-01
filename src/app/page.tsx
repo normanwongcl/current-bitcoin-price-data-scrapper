@@ -1,13 +1,16 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
+
 import { LineChart } from '@/components/Chart/LineChart';
 import { TimeSelectionMenu } from '@/components/Input/TimeSelectionMenu';
 import { HistoricalListing } from '@/components/Table/HistoricalListing';
 import { useCryptoHistoricalData } from '@/hooks/use-crypto-price-data';
 
 const Home = () => {
+  const searchParams = useSearchParams();
   const { cryptoHistoricalPrice, isLoading, error, setQueryString } =
-    useCryptoHistoricalData('bitcoin');
+    useCryptoHistoricalData('bitcoin', searchParams.toString());
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -15,6 +18,7 @@ const Home = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+  console.log(searchParams.toString());
   return (
     <>
       <div className="sm:pt-8 lg:pt-16">

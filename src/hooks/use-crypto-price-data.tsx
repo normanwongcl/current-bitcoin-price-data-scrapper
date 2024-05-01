@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 
-export const useCryptoHistoricalData = (id: string) => {
+export const useCryptoHistoricalData = (id: string, paramString: string) => {
   const [cryptoHistoricalPrice, setCryptoHistoricalPrice] = useState(
     {} as ICryptoHistoricalPrice
   );
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
-  const [queryString, setQueryString] = useState('' as string);
+  const [queryString, setQueryString] = useState(paramString ?? '');
   const CRYPTO_PRICES_API = '/api/cryptoprice';
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${CRYPTO_PRICES_API}/${id}` + queryString
+          `${CRYPTO_PRICES_API}/${id}` + `?${queryString}`
         );
         const data = await response.json();
 
