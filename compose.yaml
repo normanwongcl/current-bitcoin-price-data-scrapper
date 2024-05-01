@@ -1,0 +1,49 @@
+services:
+  mysqldb:
+    image: mysql:8.0
+    container_name: mysqlcontainer
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    volumes:
+      - $HOME/database:/var/lib/mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: bitcoinscraper
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: letmein
+      MYSQL_ROOT_PASSWORD: letmein
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysqldb
+    networks:
+      - internalnet
+      
+  frontend:
+    depends_on:
+      - mysqldb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    ports:
+      - 3000:3000
+    develop:
+      watch:
+        - path: ./package.json
+          action: rebuild
+        - path: ./next.config.mjs
+          action: rebuild
+        - path: ./package-lock.json
+          action: rebuild
+        - path: .
+          target: /src
+          action: sync
+    networks:
+      - internalnet
+
+networks:
+  internalnet:
+    driver: bridge
