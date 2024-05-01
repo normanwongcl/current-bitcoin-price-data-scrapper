@@ -23,13 +23,13 @@ export const GET = async () => {
       throw new Error('No data found!');
     }
 
-    const dbCryptoList = await getCryptoCurrencyByChartName(
+    const dbCrypto = await getCryptoCurrencyByChartName(
       currentPriceData.chartName
     );
 
     let dataCreationResult;
 
-    if (dbCryptoList?.length === 0) {
+    if (!dbCrypto) {
       dataCreationResult = await addCryptoCurrencyToList(
         currentPriceData.chartName
       );
@@ -44,20 +44,20 @@ export const GET = async () => {
       rate: currentPriceData.bpi.USD.rate,
       rateFloat: Number(currentPriceData.bpi.USD.rate_float.toFixed(4)),
       updatedAt: new Date(currentPriceData.time.updatedISO),
-      cryptoCurrencyId: dataCreationResult?.id ?? dbCryptoList?.[0]?.id ?? -1,
+      cryptoCurrencyId: dataCreationResult?.id ?? dbCrypto?.id ?? -1,
     });
     const setCurrentPriceEUR = await createCurrentPriceEUR({
       rate: currentPriceData.bpi.EUR.rate,
       rateFloat: Number(currentPriceData.bpi.EUR.rate_float.toFixed(4)),
       updatedAt: new Date(currentPriceData.time.updatedISO),
-      cryptoCurrencyId: dataCreationResult?.id ?? dbCryptoList?.[0]?.id ?? -1,
+      cryptoCurrencyId: dataCreationResult?.id ?? dbCrypto?.id ?? -1,
     });
 
     const setCurrentPriceGBP = await createCurrentPriceGBP({
       rate: currentPriceData.bpi.GBP.rate,
       rateFloat: Number(currentPriceData.bpi.GBP.rate_float.toFixed(4)),
       updatedAt: new Date(currentPriceData.time.updatedISO),
-      cryptoCurrencyId: dataCreationResult?.id ?? dbCryptoList?.[0]?.id ?? -1,
+      cryptoCurrencyId: dataCreationResult?.id ?? dbCrypto?.id ?? -1,
     });
 
     if (!setCurrentPriceUSD) {

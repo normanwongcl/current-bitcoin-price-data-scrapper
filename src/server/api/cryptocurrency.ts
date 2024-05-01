@@ -24,12 +24,12 @@ export const getAllCryptoCurrencyList = async () => {
 
 export const getCryptoCurrencyByChartName = async (chartName: string) => {
   try {
-    const cryptoCurrencyList = await prisma.cryptoCurrency.findMany({
+    const cryptoCurrencyItem = await prisma.cryptoCurrency.findFirst({
       where: {
         chartName,
       },
     });
-    return cryptoCurrencyList;
+    return cryptoCurrencyItem;
   } catch (error) {
     console.error(error);
   }

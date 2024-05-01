@@ -35,12 +35,13 @@ test('getAllCryptoCurrencyList should return the list of all cryptocurrencies', 
 
 test('getCryptoCurrencyByChartName should return the list of cryptocurrencies with the given chart name', async () => {
   const chartName = 'Bitcoin';
-  const mockCryptoCurrencyList = [{ chartName: 'Bitcoin', id: 1 }];
-  prisma.cryptoCurrency.findMany.mockResolvedValue(mockCryptoCurrencyList);
+
+  const mockCryptoCurrency = { chartName: 'Bitcoin', id: 1 };
+  prisma.cryptoCurrency.findFirst.mockResolvedValue(mockCryptoCurrency);
 
   const result = await getCryptoCurrencyByChartName(chartName);
 
-  expect(result).toEqual([{ chartName: 'Bitcoin', id: 1 }]);
+  expect(result).toEqual({ chartName: 'Bitcoin', id: 1 });
 });
 
 test('getAllCryptoCurrencyList should handle errors', async () => {

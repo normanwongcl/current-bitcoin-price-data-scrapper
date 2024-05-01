@@ -6,7 +6,7 @@ export const GET = async () => {
   try {
     const dbData = await getCryptoCurrencyByChartName('Bitcoin');
 
-    if (dbData?.length === 0) {
+    if (!dbData) {
       throw new Error('No cryptoCurrency found!');
     }
 
