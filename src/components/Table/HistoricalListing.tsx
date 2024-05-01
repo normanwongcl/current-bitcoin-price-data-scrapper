@@ -1,7 +1,7 @@
 import { Table } from './Table';
 
 import { ICryptoHistoricalPrice } from '@/hooks/use-crypto-price-data';
-import { dateformatter } from '@/utils/dateformatter';
+import { dateFormatter } from '@/utils/dateFormatter';
 export const HistoricalListing = (
   cryptoHistoricalPrice: ICryptoHistoricalPrice
 ) => {
@@ -13,7 +13,7 @@ export const HistoricalListing = (
           cryptoHistoricalPrice.USD.map((item) => (
             <tr key={item.id}>
               <td className="whitespace-nowrap py-4 pr-3 text-sm font-medium text-gray-900 sm:pl-4">
-                {dateformatter(item.updatedAt)}
+                {dateFormatter(item.updatedAt)}
               </td>
               <td className="table-column-data-default">{item.rate}</td>
             </tr>

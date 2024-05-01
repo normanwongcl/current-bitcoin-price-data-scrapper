@@ -6,13 +6,15 @@ export const useCryptoHistoricalData = (id: string) => {
   );
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
-
-  const CRYPTO_PRICES_API = '/api/cryptoPrice';
+  const [queryString, setQueryString] = useState('' as string);
+  const CRYPTO_PRICES_API = '/api/cryptoprice';
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${CRYPTO_PRICES_API}/${id}`);
+        const response = await fetch(
+          `${CRYPTO_PRICES_API}/${id}` + queryString
+        );
         const data = await response.json();
 
         setCryptoHistoricalPrice(data);
@@ -24,8 +26,14 @@ export const useCryptoHistoricalData = (id: string) => {
     };
 
     fetchData();
-  }, [id]);
-  return { cryptoHistoricalPrice, isLoading, error };
+  }, [id, queryString]);
+  return {
+    cryptoHistoricalPrice,
+    isLoading,
+    error,
+    queryString,
+    setQueryString,
+  };
 };
 
 export interface ICryptoHistoricalPrice {

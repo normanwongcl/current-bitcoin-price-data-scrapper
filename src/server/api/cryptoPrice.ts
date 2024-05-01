@@ -74,3 +74,25 @@ export const getAllPriceGPB = async (id: number) => {
     console.error(error);
   }
 };
+
+export const getAllPriceUSDWithinTimeRange = async (
+  id: number,
+  value: number
+) => {
+  let timeRange: number | string = Date.now() - value * 60 * 1000;
+  timeRange = new Date(timeRange).toISOString();
+
+  try {
+    const cryptoCurrencyList = await prisma.currentPriceUSD.findMany({
+      where: {
+        cryptoCurrencyId: id,
+        updatedAt: {
+          gte: new Date(timeRange),
+        },
+      },
+    });
+    return cryptoCurrencyList;
+  } catch (error) {
+    console.error(error);
+  }
+};
