@@ -1,17 +1,18 @@
 import { NextResponse } from 'next/server';
 
 import {
-  createCurrentPriceEUR,
-  createCurrentPriceGBP,
-  createCurrentPriceUSD,
-} from '@/server/api/bitcoin';
-import {
   addCryptoCurrencyToList,
   getCryptoCurrencyByChartName,
 } from '@/server/api/cryptocurrency';
+import {
+  createCurrentPriceEUR,
+  createCurrentPriceGBP,
+  createCurrentPriceUSD,
+} from '@/server/api/cryptoPrice';
 import { ICurrentPriceData } from '@/types/ICurrentPriceData';
 
 const CRON_API_URL = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+export const revalidate = 0;
 
 export const GET = async () => {
   try {
@@ -36,7 +37,7 @@ export const GET = async () => {
 
       if (!dataCreationResult) {
         throw new Error(
-          `${currentPriceData.chartName} failed to be added to CrytoCurrency Table`
+          `${currentPriceData.chartName} failed to be added to CryptoCurrency Table`
         );
       }
     }

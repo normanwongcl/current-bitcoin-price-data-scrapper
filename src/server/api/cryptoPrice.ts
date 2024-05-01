@@ -37,26 +37,38 @@ export const createCurrentPriceEUR = async (data: ISetPriceData) => {
     console.error(error);
   }
 };
-export const getAllBitCoinPriceUSD = async () => {
+export const getAllPriceUSD = async (id: number) => {
   try {
-    const cryptoCurrencyList = await prisma.currentPriceUSD.findMany();
+    const cryptoCurrencyList = await prisma.currentPriceUSD.findMany({
+      where: {
+        cryptoCurrencyId: id,
+      },
+    });
     return cryptoCurrencyList;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const getAllBitCoinPriceEUR = async () => {
+export const getAllPriceEUR = async (id: number) => {
   try {
-    const cryptoCurrencyList = await prisma.currentPriceEUR.findMany();
+    const cryptoCurrencyList = await prisma.currentPriceEUR.findMany({
+      where: {
+        cryptoCurrencyId: id,
+      },
+    });
     return cryptoCurrencyList;
   } catch (error) {
     console.error(error);
   }
 };
-export const getAllBitCoinPriceGPB = async () => {
+export const getAllPriceGPB = async (id: number) => {
   try {
-    const cryptoCurrencyList = await prisma.currentPriceGBP.findMany();
+    const cryptoCurrencyList = await prisma.currentPriceGBP.findMany({
+      where: {
+        cryptoCurrencyId: id,
+      },
+    });
     return cryptoCurrencyList;
   } catch (error) {
     console.error(error);

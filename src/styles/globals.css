@@ -6,3 +6,12 @@ body {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
   --tw-bg-opacity:1;
 }
+
+@layer components {
+  .table-column-header-default {
+    @apply px-3 py-3.5 text-left text-sm font-semibold text-gray-900
+  }
+  .table-column-data-default {
+    @apply px-3 py-4 text-sm text-gray-500
+  }
+}
