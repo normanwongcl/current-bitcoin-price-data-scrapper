@@ -11,11 +11,7 @@ export const GET = async (req: NextRequest) => {
     const query = req.url?.split('/')[5];
     const [id, queryString] = query?.split('?') ?? [undefined, undefined];
 
-    let timeRange;
-
-    if (queryString) {
-      timeRange = queryString.split('=')[1];
-    }
+    const timeRange = queryString ? queryString.split('=')[1] : '';
 
     if (!id) {
       throw new Error('No id provided!');
