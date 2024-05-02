@@ -6,7 +6,6 @@ import {
   getAllPriceGBP,
   getAllPriceUSD,
 } from '@/server/api/cryptoPrice';
-
 export const GET = async (req: NextRequest) => {
   try {
     const query = req.url?.split('/')[5];

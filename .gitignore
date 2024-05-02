@@ -42,3 +42,7 @@ next-env.d.ts
 /prisma/migrations/
 
 sde-take-home.md
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
