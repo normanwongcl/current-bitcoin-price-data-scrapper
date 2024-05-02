@@ -9,7 +9,7 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    exclude: [...defaultExclude],
+    exclude: [...defaultExclude, './integration-test'],
     environmentMatchGlobs: [
       ['**/*.test.tsx', 'jsdom'],
       ['**/*.component.test.ts', 'jsdom'],
