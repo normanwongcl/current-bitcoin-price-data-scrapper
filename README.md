@@ -16,6 +16,8 @@ docker compose up
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Create Database Table
+- Open the terminal in the frontend docker container.
+
 ```
 npx prisma migrate dev
 ```
@@ -50,3 +52,6 @@ npx playwright test
   <img src="https://github.com/normanwongcl/take-home-assessment-1480332513/blob/main/assets/cryptoprice-api-route.png" alt="Crypto Price API" width="800px" />
   <br>
 </h2>
+
+## Architecture 
+See [architecture.md](./architecture.md) for details.
