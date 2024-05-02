@@ -5,7 +5,7 @@ test('sanity test on time selection', async () => {
   const browser = await webkit.launch();
   const context = await browser.newContext();
   const page = await context.newPage();
-  await page.goto('http://localhost:3001/');
+  await page.goto('http://localhost:3000/');
   await page.getByRole('img').click({
     position: {
       x: 409,
