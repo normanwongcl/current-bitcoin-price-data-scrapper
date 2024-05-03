@@ -7,7 +7,7 @@
 
 ### Cron Job API
 ```
-http://localhost:3001/api/cron
+http://localhost:3000/api/cron
 ```
 - Fetch latest price from Coindesk API
 - Store price in MySQL database
@@ -18,7 +18,7 @@ http://localhost:3001/api/cron
 ## Cryptocurrency API
 
 ```
-http://localhost:3001/api/cryptoprice/[id]
+http://localhost:3000/api/cryptoprice/[id]
 ```
 - Output sample:
 ```json
