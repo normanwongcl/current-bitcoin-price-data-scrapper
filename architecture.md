@@ -33,7 +33,7 @@ http://localhost:3001/api/cryptoprice/[id]
 ### Query String to filtered out prices
 
 ```
-http://localhost:3001/api/cryptoprice/bitcoin?timerange=10
+http://localhost:3000/api/cryptoprice/bitcoin?timerange=10
 ```
 - timerange=10 will return all prices before 10 minutes
 
@@ -42,9 +42,3 @@ http://localhost:3001/api/cryptoprice/bitcoin?timerange=10
   <br>
 </h2>
 - The Filter time range select menu input will use either 10 minutes, 60 minutes or 120 minutes as the filtering range in the frontend.
-
-<h2 align="left">
-  <img src="https://github.com/normanwongcl/take-home-assessment-1480332513/blob/main/assets/filtered-price-data.png" alt="filtered data time range" width="800px" />
-  <br>
-</h2>
-
