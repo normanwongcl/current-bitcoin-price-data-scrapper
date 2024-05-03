@@ -12,7 +12,7 @@ http://localhost:3000/api/cron
 - Fetch latest price from Coindesk API
 - Store price in MySQL database
     - Create new crytocurrency entry in CryptoCurrency Table if chartName does not exist in table
-    - store latest price in CurrentPriceUSD, CurrentPriceGBP, CurrentPriceEUR tabl
+    - store latest price in CurrentPriceUSD, CurrentPriceGBP, CurrentPriceEUR table
 - (Not implemented): Was planning to use Github Action scheduled workflow to hit this endpoint every minute to trigger the api.
 
 ## Cryptocurrency API
