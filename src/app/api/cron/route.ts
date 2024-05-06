@@ -43,20 +43,20 @@ export const GET = async () => {
     }
     const setCurrentPriceUSD = await createCurrentPriceUSD({
       rate: currentPriceData.bpi.USD.rate,
-      rateFloat: Number(currentPriceData.bpi.USD.rate_float.toFixed(4)),
+      rateFloat: Number(currentPriceData.bpi.USD.rate_float.toFixed(2)),
       updatedAt: new Date(currentPriceData.time.updatedISO),
       cryptoCurrencyId: dataCreationResult?.id ?? dbCrypto?.id ?? -1,
     });
     const setCurrentPriceEUR = await createCurrentPriceEUR({
       rate: currentPriceData.bpi.EUR.rate,
-      rateFloat: Number(currentPriceData.bpi.EUR.rate_float.toFixed(4)),
+      rateFloat: Number(currentPriceData.bpi.EUR.rate_float.toFixed(2)),
       updatedAt: new Date(currentPriceData.time.updatedISO),
       cryptoCurrencyId: dataCreationResult?.id ?? dbCrypto?.id ?? -1,
     });
 
     const setCurrentPriceGBP = await createCurrentPriceGBP({
       rate: currentPriceData.bpi.GBP.rate,
-      rateFloat: Number(currentPriceData.bpi.GBP.rate_float.toFixed(4)),
+      rateFloat: Number(currentPriceData.bpi.GBP.rate_float.toFixed(2)),
       updatedAt: new Date(currentPriceData.time.updatedISO),
       cryptoCurrencyId: dataCreationResult?.id ?? dbCrypto?.id ?? -1,
     });

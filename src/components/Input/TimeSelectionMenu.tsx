@@ -25,7 +25,6 @@ export const TimeSelectionMenu = ({
           { value: '60', label: '1 hour ago' },
           { value: '120', label: '2 hours ago' },
         ]}
-        currentTimeRange={currentTimeRange}
         value={currentTimeRange}
         onChange={(value) => {
           setTimeRange(value);

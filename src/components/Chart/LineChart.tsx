@@ -23,6 +23,26 @@ export const LineChart = (cryptoHistoricalPrice: ICryptoHistoricalPrice) => {
               ...(cryptoHistoricalPrice?.USD?.map((item) => item.rateFloat) ??
                 []),
             ],
+            backgroundColor: 'orange',
+            borderColor: 'orange',
+          },
+          {
+            label: 'EUR',
+            data: [
+              ...(cryptoHistoricalPrice?.EUR?.map((item) => item.rateFloat) ??
+                []),
+            ],
+            backgroundColor: 'brown',
+            borderColor: 'brown',
+          },
+          {
+            label: 'GBP',
+            data: [
+              ...(cryptoHistoricalPrice?.GBP?.map((item) => item.rateFloat) ??
+                []),
+            ],
+            backgroundColor: 'green',
+            borderColor: 'green',
           },
         ],
       }}

@@ -1,14 +1,16 @@
+type SelectMenuProps = {
+  label: string;
+  options: { value: string; label: string }[];
+  onChange: (value: string) => void;
+  [key: string]: unknown;
+};
+
 export const SelectMenu = ({
   label,
   options,
   onChange,
   ...delegated
-}: {
-  label: string;
-  options: { value: string; label: string }[];
-  onChange: (value: string) => void;
-  [key: string]: unknown;
-}) => {
+}: SelectMenuProps) => {
   const handleChange = (e: { target: { value: string } }) => {
     onChange(e.target.value);
   };

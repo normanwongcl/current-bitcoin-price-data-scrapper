@@ -21,18 +21,18 @@ const Home = () => {
   console.log(searchParams.toString());
   return (
     <>
-      <div className="sm:pt-8 lg:pt-16">
+      <div className="sm:pt-8 lg:pt-8">
         <div className="mx-auto max-w-3xl">
-          <div className="bg-white px-4 py-6 sm:px-6 lg:px-8">
+          <div className="rounded-t-lg bg-white px-4 py-6 sm:px-6 lg:px-8">
             <TimeSelectionMenu setQueryString={setQueryString} />
           </div>
         </div>
         <div className="mx-auto max-w-3xl">
-          <div className="bg-white px-4 py-6 sm:px-6 lg:px-8">
+          <div className="rounded-b-lg bg-white px-4 py-6 sm:px-6 lg:px-8">
             <LineChart {...cryptoHistoricalPrice} />
           </div>
         </div>
-        <div className="mx-auto mt-4 max-w-3xl">
+        <div className="mx-auto mb-8 mt-4 max-w-3xl">
           <HistoricalListing {...cryptoHistoricalPrice} />
         </div>
       </div>

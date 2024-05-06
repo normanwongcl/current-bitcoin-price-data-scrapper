@@ -1,16 +1,24 @@
-export const Table = ({ children }: { children: React.ReactNode }) => {
+type TableProps = {
+  tableHeadingList: string[];
+  children: React.ReactNode;
+};
+
+export const Table = ({ tableHeadingList, children }: TableProps) => {
   return (
     <table
       className={`min-w-full divide-y divide-gray-300  ring-1 ring-slate-500 sm:rounded-md `}
     >
       <thead>
         <tr>
-          <th scope="col" className="table-column-header-default pr-7">
-            Last Updated
-          </th>
-          <th scope="col" className="table-column-header-default">
-            Rate (USD)
-          </th>
+          {tableHeadingList.map((heading) => (
+            <th
+              key={heading}
+              scope="col"
+              className="table-column-header-default"
+            >
+              {heading}
+            </th>
+          ))}
         </tr>
       </thead>
       <tbody className="div ">{children}</tbody>

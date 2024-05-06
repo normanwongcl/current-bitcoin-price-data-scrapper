@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const useCryptoHistoricalData = (id: string, paramString: string) => {
-  const [cryptoHistoricalPrice, setCryptoHistoricalPrice] = useState(
-    {} as ICryptoHistoricalPrice
-  );
+  const [cryptoHistoricalPrice, setCryptoHistoricalPrice] = useState({} as I);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [queryString, setQueryString] = useState(paramString ?? '');
