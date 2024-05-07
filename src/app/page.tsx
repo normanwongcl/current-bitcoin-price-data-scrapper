@@ -12,11 +12,23 @@ const Home = () => {
   const { cryptoHistoricalPrice, isLoading, error, setQueryString } =
     useCryptoHistoricalData('bitcoin', searchParams.toString());
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="sm:pt-8 lg:pt-8">
+        <div className="mx-auto max-w-3xl">
+          <div>Loading...</div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <div className="sm:pt-8 lg:pt-8">
+        <div className="mx-auto max-w-3xl">
+          <div>Error: {error.message}</div>
+        </div>
+      </div>
+    );
   }
   console.log(searchParams.toString());
   return (

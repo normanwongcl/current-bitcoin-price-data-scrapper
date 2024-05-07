@@ -14,7 +14,6 @@ export const TimeSelectionMenu = ({
 
     return params.toString();
   };
-
   return (
     <>
       <SelectMenu
@@ -25,12 +24,11 @@ export const TimeSelectionMenu = ({
           { value: '60', label: '1 hour ago' },
           { value: '120', label: '2 hours ago' },
         ]}
-        value={currentTimeRange}
+        defaultValue={currentTimeRange}
         onChange={(value) => {
           setTimeRange(value);
           const param = createQueryString('timerange', value);
           setQueryString(param);
-          window.location.search = param;
         }}
       />
     </>
