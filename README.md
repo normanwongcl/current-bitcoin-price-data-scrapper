@@ -15,13 +15,6 @@ docker compose up
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Create Database Table
-- Open the terminal in the frontend docker container.
-
-```
-npx prisma migrate dev
-```
-Table will be created in database
 
 ## View data model
 ```

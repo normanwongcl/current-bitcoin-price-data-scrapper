@@ -8,13 +8,10 @@ export const AverageInfoGrid = (
   cryptoHistoricalPrice: ICryptoHistoricalPrice
 ) => {
   const movingAverage = (data: ICryptoPriceDetails[]) => {
-    const movingAverage = data.reduce(
-      (acc: number, item: ICryptoPriceDetails) => {
-        return acc + parseFloat(item?.rateFloat);
-      },
-      0
-    );
-    return movingAverage / data.length;
+    const total = data.reduce((acc: number, item: ICryptoPriceDetails) => {
+      return acc + parseFloat(item?.rateFloat);
+    }, 0);
+    return total / data.length;
   };
   const movingAverageUSD =
     cryptoHistoricalPrice?.USD.length > 0
@@ -45,8 +42,8 @@ export const AverageInfoGrid = (
 
   return (
     <>
-      <h2 className="block text-sm font-medium leading-6 text-gray-900">
-        Average
+      <h2 className="block pt-4 text-sm font-medium leading-6 text-gray-900">
+        Average By Currency
       </h2>
       <dl className="grid grid-cols-3 gap-0.5 overflow-hidden rounded-2xl text-center">
         {movingAverageList.map((stat) => (

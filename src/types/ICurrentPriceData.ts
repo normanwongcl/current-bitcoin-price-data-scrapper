@@ -24,3 +24,14 @@ export interface ICurrentPriceTime {
   updatedISO: Date;
   updateduk: string;
 }
+
+export interface ISetPriceData {
+  rate: string;
+  rateFloat: number;
+  updatedAt: Date;
+  cryptoCurrencyId: number;
+}
+
+export interface ISetPriceDataAPI extends ISetPriceData {
+  id: number;
+}
