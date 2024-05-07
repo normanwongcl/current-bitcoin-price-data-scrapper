@@ -6,13 +6,9 @@ test('sanity test on time selection', async () => {
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto('http://localhost:3000/');
-  await page.getByRole('img').click({
-    position: {
-      x: 409,
-      y: 112,
-    },
-  });
+  await page.getByLabel('Filter time range').selectOption('5');
   await page.getByLabel('Filter time range').selectOption('10');
   await page.getByLabel('Filter time range').selectOption('60');
   await page.getByLabel('Filter time range').selectOption('120');
+  await page.getByLabel('Filter time range').selectOption('');
 });
