@@ -1,5 +1,5 @@
 <h2 align="left">
-  <img src="https://github.com/normanwongcl/take-home-assessment-1480332513/blob/main/assets/ui-dashboard.png" alt="Dashboard UI" width="800px" />
+  <img src="https://github.com/normanwongcl/take-home-assessment-1480332513/blob/main/assets/ui-dashboard.gif" alt="Dashboard UI" width="800px" />
   <br>
 </h2>
 
