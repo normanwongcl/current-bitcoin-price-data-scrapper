@@ -17,21 +17,21 @@ export const AverageInfoGrid = (
     cryptoHistoricalPrice?.USD.length > 0
       ? currencyFormatter(
           '$',
-          movingAverage(cryptoHistoricalPrice.USD).toString()
+          movingAverage(cryptoHistoricalPrice?.USD).toString()
         )
       : 'No data';
   const movingAverageEUR =
     cryptoHistoricalPrice?.EUR.length > 0
       ? currencyFormatter(
           '€',
-          movingAverage(cryptoHistoricalPrice.EUR).toString()
+          movingAverage(cryptoHistoricalPrice?.EUR).toString()
         )
       : 'No data';
   const movingAverageGBP =
     cryptoHistoricalPrice?.GBP.length > 0
       ? currencyFormatter(
           '£',
-          movingAverage(cryptoHistoricalPrice.GBP).toString()
+          movingAverage(cryptoHistoricalPrice?.GBP).toString()
         )
       : 'No data';
   const movingAverageList = [
