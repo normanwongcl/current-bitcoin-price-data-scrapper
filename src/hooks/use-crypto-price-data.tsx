@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 
 export const useCryptoHistoricalData = (id: string, paramString: string) => {
-  const [cryptoHistoricalPrice, setCryptoHistoricalPrice] = useState({} as I);
+  const [cryptoHistoricalPrice, setCryptoHistoricalPrice] = useState(
+    {} as ICryptoHistoricalPrice
+  );
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [queryString, setQueryString] = useState(paramString ?? '');
@@ -11,8 +13,10 @@ export const useCryptoHistoricalData = (id: string, paramString: string) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${CRYPTO_PRICES_API}/${id}` + `?${queryString}`
+          `${CRYPTO_PRICES_API}/${id}` + `?${queryString}`,
+          { next: { revalidate: 30 } }
         );
+
         const data = await response.json();
 
         setCryptoHistoricalPrice(data);
@@ -35,25 +39,15 @@ export const useCryptoHistoricalData = (id: string, paramString: string) => {
 };
 
 export interface ICryptoHistoricalPrice {
-  USD: {
-    id: number;
-    rate: string;
-    rateFloat: number;
-    updatedAt: Date;
-    cryptoCurrencyId: number;
-  }[];
-  EUR: {
-    id: number;
-    rate: string;
-    rateFloat: number;
-    updatedAt: Date;
-    cryptoCurrencyId: number;
-  }[];
-  GBP: {
-    id: number;
-    rate: string;
-    rateFloat: number;
-    updatedAt: Date;
-    cryptoCurrencyId: number;
-  }[];
+  USD: ICryptoPriceDetails[];
+  EUR: ICryptoPriceDetails[];
+  GBP: ICryptoPriceDetails[];
+}
+
+export interface ICryptoPriceDetails {
+  id: number;
+  rate: string;
+  rateFloat: string;
+  updatedAt: Date;
+  cryptoCurrencyId: number;
 }

@@ -18,7 +18,7 @@ export const LineChart = (cryptoHistoricalPrice: ICryptoHistoricalPrice) => {
         ],
         datasets: [
           {
-            label: 'USD',
+            label: 'USD ($)',
             data: [
               ...(cryptoHistoricalPrice?.USD?.map((item) => item.rateFloat) ??
                 []),
@@ -27,7 +27,7 @@ export const LineChart = (cryptoHistoricalPrice: ICryptoHistoricalPrice) => {
             borderColor: 'orange',
           },
           {
-            label: 'EUR',
+            label: 'EUR (€)',
             data: [
               ...(cryptoHistoricalPrice?.EUR?.map((item) => item.rateFloat) ??
                 []),
@@ -36,7 +36,7 @@ export const LineChart = (cryptoHistoricalPrice: ICryptoHistoricalPrice) => {
             borderColor: 'brown',
           },
           {
-            label: 'GBP',
+            label: 'GBP (£)',
             data: [
               ...(cryptoHistoricalPrice?.GBP?.map((item) => item.rateFloat) ??
                 []),

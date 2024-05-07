@@ -3,10 +3,10 @@
 import { useSearchParams } from 'next/navigation';
 
 import { LineChart } from '@/components/Chart/LineChart';
+import { AverageInfoGrid } from '@/components/Grid/AverageInfoGrid';
 import { TimeSelectionMenu } from '@/components/Input/TimeSelectionMenu';
 import { HistoricalListing } from '@/components/Table/HistoricalListing';
 import { useCryptoHistoricalData } from '@/hooks/use-crypto-price-data';
-
 const Home = () => {
   const searchParams = useSearchParams();
   const { cryptoHistoricalPrice, isLoading, error, setQueryString } =
@@ -30,7 +30,6 @@ const Home = () => {
       </div>
     );
   }
-  console.log(searchParams.toString());
   return (
     <>
       <div className="sm:pt-8 lg:pt-8">
@@ -40,6 +39,9 @@ const Home = () => {
           </div>
         </div>
         <div className="mx-auto max-w-3xl">
+          <div className="rounded-lg bg-white lg:px-8">
+            <AverageInfoGrid {...cryptoHistoricalPrice} />
+          </div>
           <div className="rounded-b-lg bg-white px-4 py-6 sm:px-6 lg:px-8">
             <LineChart {...cryptoHistoricalPrice} />
           </div>
