@@ -20,7 +20,9 @@ export const TimeSelectionMenu = ({
         label={'Filter time range'}
         options={[
           { value: '', label: 'Select a time range' },
+          { value: '5', label: '5 minutes ago' },
           { value: '10', label: '10 minutes ago' },
+          { value: '30', label: '30 minutes ago' },
           { value: '60', label: '1 hour ago' },
           { value: '120', label: '2 hours ago' },
         ]}

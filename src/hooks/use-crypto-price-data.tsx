@@ -14,7 +14,7 @@ export const useCryptoHistoricalData = (id: string, paramString: string) => {
       try {
         const response = await fetch(
           `${CRYPTO_PRICES_API}/${id}` + `?${queryString}`,
-          { next: { revalidate: 30 } }
+          { next: { revalidate: 10 } }
         );
 
         const data = await response.json();

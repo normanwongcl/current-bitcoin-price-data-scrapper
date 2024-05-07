@@ -12,6 +12,6 @@ body {
     @apply px-3 py-3.5 text-left text-sm font-semibold text-gray-900
   }
   .table-column-data-default {
-    @apply px-3 py-4 text-sm text-gray-500
+    @apply px-3 py-4 text-sm text-gray-700
   }
 }
